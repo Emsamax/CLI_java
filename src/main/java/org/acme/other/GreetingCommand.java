@@ -1,6 +1,5 @@
-package org.acme;
+package org.acme.other;
 
-import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 

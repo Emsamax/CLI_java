@@ -3,27 +3,36 @@ package org.acme;
 import io.quarkus.picocli.runtime.annotations.TopCommand;
 import io.quarkus.runtime.QuarkusApplication;
 import io.quarkus.runtime.annotations.QuarkusMain;
-import org.acme.subcommands.ReadCommand;
-import org.acme.subcommands.ImportCommand;
+import jakarta.inject.Inject;
 import org.acme.subcommands.GetCommand;
+import org.acme.subcommands.ImportCommand;
+import org.acme.subcommands.ReadCommand;
 import picocli.CommandLine;
 
-
-// ImportCommand.class, GetCommand.class
 @QuarkusMain
 @TopCommand
-@CommandLine.Command(subcommands = {ReadCommand.class})
+@CommandLine.Command(name = "cli", subcommands = {ReadCommand.class, GetCommand.class, ImportCommand.class})
 public class ScimCtl implements Runnable, QuarkusApplication {
+    @Inject CommandLine.IFactory factory;
+
     @Override
     public void run() {
-        System.out.println("Hello from ScimCtl");
-        var readCommand = new ReadCommand();
-        readCommand.run();
+        try{
+            CommandLine commandLine = new CommandLine(this, factory);
+            if (commandLine.getSubcommands() == null) {
+                commandLine.usage(System.err);
+                return;
+            }
+            commandLine.execute();
+        } catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+
     }
 
     @Override
-    public int run(String... args) {
-        return new CommandLine(this).execute(args);
+    public int run(String... args) throws Exception {
+        return new CommandLine(this, factory).execute(args);
     }
 }
 

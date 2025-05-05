@@ -1,0 +1,23 @@
+# sample import file
+firstName,lastName,email
+John,Doe,jdoe@example.com
+Alice, Smith, asmith@example.com
+Bob, Johnson, bjohnson@example.com
+Charlie, Williams, cwilliams@example.com
+David, Brown, dbrown@example.com
+Eva, Davis, edavis@example.com
+Frank, Miller, fmiller@example.com
+Grace, Wilson, gwilson@example.com
+Hannah, Moore, hmoore@example.com
+Ian, Taylor, itaylor@example.com
+Jasmine, Anderson, janderson@example.com
+Liam, Thomas, lthomas@example.com
+Mia, Jackson, mjackson@example.com
+Noah, White, nwhite@example.com
+Olivia, Harris, oharris@example.com
+Ethan, Martin, emartin@example.com
+Sophia, Thompson, sthompson@example.com
+Jacob, Garcia, jgarcia@example.com
+Emily, Martinez, emartinez@example.com
+Michael, Robinson, mrobinson@example.com
+Isabella, Clark, iclark@example.com

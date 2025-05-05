@@ -43,6 +43,21 @@
             <artifactId>quarkus-junit5</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- Hibernate ORM specific dependencies -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-orm</artifactId>
+        </dependency>
+        <!-- JDBC driver dependencies -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jdbc-postgresql</artifactId>
+        </dependency>
+        <!-- Jackson pr csv -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-csv</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -97,6 +112,16 @@
                         <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
                         <maven.home>${maven.home}</maven.home>
                     </systemPropertyVariables>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>21</source>
+                    <target>21</target>
+                    <release>21</release>
+                    <!-- <compilerArgs>- -enable-preview</compilerArgs> -->
                 </configuration>
             </plugin>
         </plugins>
